@@ -25,5 +25,9 @@ Unsigned emails increase spoofing and impersonation risk.
 **Risk:** Medium  
 DMARC is in monitoring mode only, allowing malicious emails to pass.
 
-## Evidence
-See `/findings/screenshots/`
+## Supporting Evidence
+
+![Redacted MXToolbox Email Header Analysis](screenshots/mxtoolbox-header-redacted.png)
+
+*Figure 1: Redacted MXToolbox email header analysis showing SPF, DKIM, and DMARC failures.*
+
