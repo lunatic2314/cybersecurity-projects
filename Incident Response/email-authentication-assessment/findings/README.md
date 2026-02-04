@@ -26,3 +26,6 @@ Unsigned emails increase spoofing and impersonation risk.
 DMARC is in monitoring mode only, allowing malicious emails to pass.
 
 ## Supporting Evidence
+## Email Authentication Results (MXToolbox)
+
+![MXToolbox Email Authentication](images/mxtoolbox-email-auth.png)
