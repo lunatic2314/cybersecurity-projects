@@ -1,29 +1,34 @@
-## 🔍 Attack & Detection Evidence
+## 🔎 Attack & Detection Evidence
 
 ### Recon – Nmap Scan
-![Nmap Recon](screenshots/00-kali-nmap-recon.png)
+![Nmap Recon](00-kali-nmap-recon.png)
 
 ---
 
 ### Brute Force Attack – Hydra (Kali Linux)
-![Hydra Brute Force](screenshots/01-kali-hydra-bruteforce.png)
+![Hydra Brute Force](01-kali-hydra-bruteforce.png)
 
 ---
 
-### Detection – Wazuh Authentication Failures Dashboard
-![Wazuh Authentication Failures](screenshots/02-wazuh-authentication-failures.png)
+### Wazuh Authentication Failures Overview
+![Auth Failures](02-wazuh-authentication-failures.png)
 
 ---
 
-### Event Details – Source IP + MITRE T1110
-![Wazuh Event Details](screenshots/03-wazuh-event-details.png)
+### Wazuh Event Details
+![Event Details](03-wazuh-event-details.png)
 
 ---
 
-### Rule Analysis – SSH Rule 5760
-![Wazuh SSH Rule](screenshots/04-wazuh-ssh-rule.png)
+### Wazuh SSH Rule 5760
+![SSH Rule](04-wazuh-ssh-rule.png)
 
 ---
 
-### Containment – Fail2Ban Blocked Malicious IP
-![Fail2Ban Ban](screenshots/05-fail2ban-banned-ip.png)
+### Fail2Ban Blocking Malicious IP
+![Fail2Ban](05-fail2ban-banned-ip.png)
+
+---
+
+### Wazuh Security Events Dashboard
+![Security Events](06-wazuh-authentication-events.png)
