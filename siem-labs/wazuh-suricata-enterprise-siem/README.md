@@ -8,6 +8,7 @@ This project demonstrates the deployment and integration of a Security Informati
 - Suricata (Network IDS)
 - OpenSearch (Data indexing engine)
 - Ubuntu Server 24.04
+- Kali Linux
 - Virtualized lab environment
 
 The objective was to simulate enterprise SOC monitoring capabilities by ingesting IDS alerts into a centralized SIEM for analysis and investigation.
