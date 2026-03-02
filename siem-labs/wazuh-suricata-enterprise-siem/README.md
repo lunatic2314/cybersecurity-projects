@@ -35,7 +35,8 @@ Wazuh Dashboard
 
 ## ⚙️ Technologies Used
 
-- Ubuntu Server 24.04 LTS  
+- Ubuntu Server 24.04 LTS
+- Kali Linux
 - Wazuh 4.x  
 - Suricata 7.x  
 - OpenSearch  
