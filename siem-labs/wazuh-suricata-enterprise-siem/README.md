@@ -16,16 +16,15 @@ The objective was to simulate real-world attack activity and validate detection,
 
 ## 🏗 Lab Architecture
 
-Attacker (Kali Linux)
-↓
+Attacker (Kali Linux) ->
 Brute Force + Network Scanning
-↓
+->
 Suricata IDS (EVE JSON logs)
-↓
+->
 Wazuh Manager
-↓
+->
 OpenSearch Indexer
-↓
+->
 Wazuh Dashboard
 
 ---
