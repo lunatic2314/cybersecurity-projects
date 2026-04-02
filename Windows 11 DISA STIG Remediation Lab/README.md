@@ -97,8 +97,126 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
 DisableExceptionChainValidation = 0
 ```
 
-## ⚠️ Disclaimer
+![Detailed Failed SEHOP Finding](screenshots/03-sehop-failed-detail.png)
 
-This project was performed on a personal Windows 11 workstation for educational, portfolio, and compliance workflow demonstration purposes.
+### Root Cause
+The registry value **`DisableExceptionChainValidation`** did not exist, causing the automated validation check to fail.
 
-Only a single low-risk CAT I control was selected to preserve system stability while demonstrating a full remediation lifecycle.
+---
+
+## 4️⃣ Registry-Based Remediation
+The missing DWORD value was manually created in **Registry Editor**.
+
+### Remediation Steps
+1. Open `regedit`
+2. Navigate to:
+
+```text
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
+```
+
+3. Create **DWORD (32-bit)**:
+```text
+DisableExceptionChainValidation
+```
+
+4. Set value to:
+```text
+0
+```
+
+5. Reboot the workstation
+6. Re-run SCAP benchmark
+
+![Registry Remediation](screenshots/04-registry-remediation.png)
+
+### Key Takeaway
+This demonstrates:
+- safe registry-based hardening
+- exploit mitigation enforcement
+- production-safe remediation workflow
+
+---
+
+## 5️⃣ Post-Remediation Improved Score
+After applying the registry fix and re-running the benchmark, the score increased from:
+
+- **36.41% → 36.82%**
+
+This proves measurable compliance improvement.
+
+![Post Remediation Score](screenshots/05-post-remediation-score.png)
+
+### Improvement Achieved
+- **+0.41% compliance increase**
+- 1 CAT I control successfully remediated
+- improved endpoint exploit mitigation posture
+
+---
+
+## 6️⃣ Final PASS Validation
+The final SCAP detailed report confirms the control changed from:
+
+- **Before:** FAIL
+- **After:** PASS
+
+The registry object test now validates successfully.
+
+![Final PASS Validation](screenshots/06-sehop-pass-validation.png)
+
+### Validation Outcome
+This is the strongest evidence in the project because it confirms:
+- successful remediation
+- validated registry state
+- automated SCAP pass
+- closed CAT I finding
+
+---
+
+# 🔍 Technical Explanation
+SEHOP protects Windows systems against attacks that abuse **Structured Exception Handling overwrite chains**, commonly associated with memory corruption exploitation.
+
+The required STIG setting ensures the following registry value exists:
+
+```text
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
+DisableExceptionChainValidation = 0
+```
+
+A missing key causes the system to fail automated DISA validation.
+
+---
+
+# 📈 Results Summary
+## Before
+- Compliance score: **36.41%**
+- CAT I finding: **FAIL**
+
+## After
+- Compliance score: **36.82%**
+- CAT I finding: **PASS**
+
+## Security Improvement
+- improved exploit mitigation
+- reduced memory corruption attack reliability
+- strengthened Windows endpoint hardening
+- validated DISA STIG compliance delta
+
+---
+
+# 🧠 Skills Demonstrated
+- DISA STIG remediation
+- SCAP benchmark analysis
+- Windows endpoint hardening
+- registry-based exploit mitigation
+- CAT I vulnerability triage
+- compliance evidence collection
+- risk-based remediation
+- validation through re-scan
+
+---
+
+# ⚠️ Disclaimer
+This project was performed on a personal Windows 11 workstation for **educational, portfolio, and compliance workflow demonstration purposes**.
+
+Only a **single low-risk CAT I control** was selected to preserve system stability while demonstrating a full remediation lifecycle.
