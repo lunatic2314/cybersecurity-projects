@@ -95,3 +95,10 @@ Required registry setting:
 ```text
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
 DisableExceptionChainValidation = 0
+```
+
+## ⚠️ Disclaimer
+
+This project was performed on a personal Windows 11 workstation for educational, portfolio, and compliance workflow demonstration purposes.
+
+Only a single low-risk CAT I control was selected to preserve system stability while demonstrating a full remediation lifecycle.
