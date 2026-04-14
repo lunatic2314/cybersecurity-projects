@@ -1,125 +1,78 @@
-## 🔍 Compliance Automation Evidence Walkthrough
-This section documents the full compliance evidence transformation lifecycle, from CKL import to POA&M-ready CSV generation and closure validation tracking.
+## 🔍 Self-Hosted AI Compliance Automation Evidence Walkthrough
+This section documents the full evidence transformation lifecycle, from DISA STIG CKL ingestion to **AI-enriched POA&M-ready CSV output** using **n8n + local Ollama**.
 
 ---
 
-## 1️⃣ Workflow Orchestration – n8n End-to-End Pipeline
-### n8n Workflow Overview
+## 1️⃣ Self-Hosted Workflow Orchestration + Local AI
+### n8n Workflow with Ollama Enrichment
 
-![n8n Workflow Overview](Screenshot%202026-04-13%20202235.png)
+![n8n Workflow with Local Ollama](01-local-ollama-ai-workflow.png)
 
-**Objective:** Automate the transformation of STIG CKL/XML findings into structured POA&M artifacts.
+**Objective:** Automate the transformation of DISA STIG CKL/XML findings into structured POA&M artifacts while enriching the workflow with private local AI.
 
 ### What Happened:
 - Imported CKL/XML checklist data from disk
-- Parsed XML into structured JSON objects
-- Applied JavaScript transformation logic for normalization
-- Mapped findings into POA&M schema-ready rows
-- Converted JSON output into downloadable CSV evidence
+- Parsed XML into structured JSON
+- Applied JavaScript-based normalization logic
+- Applied CAT severity prioritization
+- Used a **Limit node** to process one representative finding
+- Passed the finding into a **Basic LLM Chain**
+- Used **local Ollama inference** for AI enrichment
+- Generated final structured POA&M rows
+- Exported the data into CSV
 
 ### Why It Matters:
-This validates workflow orchestration and automation of manual RMF evidence handling tasks.
+This validates an **on-host AI-assisted RMF workflow** where sensitive compliance evidence remains local and does not rely on external APIs.
 
 ### Security / Governance Value:
-- Continuous monitoring support
-- RMF evidence standardization
-- Reduced manual spreadsheet processing
-- Faster audit preparation cycles
+- local AI processing
+- no external data exposure
+- POA&M consistency
+- remediation acceleration
+- scalable future AI enrichment
+- private compliance evidence handling
 
 ---
 
-## 2️⃣ Data Transformation – XML to JSON Parsing
-### XML Parsing Output
+## 2️⃣ AI-Enriched POA&M Artifact Output
+### Final CSV Evidence with AI Fields
 
-**Objective:** Normalize raw DISA STIG CKL evidence into machine-readable data.
+![AI-Enriched POA&M Output](02-ai-enriched-poam-output.png)
+
+**Objective:** Demonstrate how the local AI layer enriches the final POA&M CSV artifact.
+
+### AI-Generated Fields:
+- `finding_summary`
+- `recommended_fix`
+- `closure_validation`
+- `ai_raw_output`
 
 ### What Happened:
-- Extracted vulnerability IDs
-- Parsed control IDs, rule IDs, and benchmark references
-- Captured raw checklist failure descriptions
-- Preserved STIG metadata for downstream mapping
+- Ollama generated a vulnerability narrative summary
+- AI recommended the remediation action
+- Closure validation guidance was generated
+- All AI output fields were preserved in the final CSV artifact
 
 ### Why It Matters:
-Transforms semi-structured compliance data into automation-ready records.
-
----
-
-## 3️⃣ POA&M Logic Processing – Risk Prioritization & Ownership
-### POA&M Logic Node
-
-**Objective:** Apply business logic required for POA&M management.
-
-### What Happened:
-- Assigned risk levels based on CAT severity
-- Generated POA&M priority values (P1/P2/P3)
-- Added ownership team mappings
-- Calculated milestone dates
-- Inserted remediation resource requirements
-
-### Governance Mapping:
-- NIST RMF POA&M tracking
-- FedRAMP continuous monitoring workflows
-- DISA STIG remediation lifecycle
-
----
-
-## 4️⃣ Structured Output – CSV Export Validation
-### POA&M CSV Output
-
-![POA&M CSV Output](Screenshot%202026-04-13%20200557.png)
-
-**Objective:** Validate successful generation of structured remediation artifacts.
-
-### What Happened:
-- Exported 163 structured findings
-- Confirmed field mapping integrity
-- Preserved remediation comments
-- Included closure validation evidence fields
-- Retained benchmark traceability references
-
-### Why It Matters:
-This confirms artifact portability for:
-- ISSO review
-- SCC / CKL validation
-- leadership reporting
-- audit evidence packages
-
----
-
-## 5️⃣ Final Artifact Review – Sanitized Spreadsheet Evidence
-### Sanitized Spreadsheet Output
-
-![Sanitized Spreadsheet Output](Screenshot%202026-04-13%20200557.png)
-
-**Objective:** Demonstrate final audit-ready POA&M evidence format.
-
-### What Happened:
-- Verified remediation comments align with STIG requirement
-- Confirmed scheduled completion dates
-- Preserved control traceability
-- Included SCC/CKL closure validation notes
-- Maintained benchmark title references
-
-### Outcome:
-- CKL imported
-- Findings normalized
-- Risk prioritized
-- CSV exported
-- Spreadsheet ready for POA&M review
-- Closure evidence documented
+This demonstrates how local AI can reduce manual analyst effort in:
+- RMF documentation
+- ISSO remediation workflows
+- POA&M narrative consistency
+- closure validation evidence
+- leadership-ready compliance reporting
 
 ---
 
 ## 🧠 Final Result
-This lab demonstrates:
-- STIG CKL/XML evidence ingestion
-- XML → JSON normalization
-- JavaScript-based compliance logic
-- Automated POA&M row generation
-- Risk prioritization workflows
-- RMF artifact standardization
-- CSV evidence export
-- Closure validation support
-- Audit-ready spreadsheet generation
+This upgraded workflow now demonstrates:
+- DISA STIG CKL/XML ingestion
+- XML → JSON transformation
+- CAT-based prioritization
+- POA&M row generation
+- **self-hosted Ollama AI enrichment**
+- AI-generated remediation guidance
+- closure validation support
+- CSV evidence portability
+- private local compliance processing
 
-This project validates end-to-end compliance automation capability in an enterprise-style RMF / continuous monitoring workflow.
+This validates a **real-world AI-powered compliance engineering workflow** with strong applicability to RMF, ISSO, GRC automation, and FedRAMP evidence operations.
