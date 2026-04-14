@@ -89,12 +89,10 @@ benchmark_title
 ## 🖼️ Screenshots
 
 ### Full n8n Workflow
-Add screenshot:
-`images/01-full-workflow-pipeline.png`
+![n8n Workflow Overview](./Screenshot%202026-04-13%20202235.png)
 
 ### Final CSV POA&M Output
-Add screenshot:
-`images/02-poam-csv-output.png`
+![POA&M CSV Output](./Screenshot%202026-04-13%20200557.png)
 
 ---
 
