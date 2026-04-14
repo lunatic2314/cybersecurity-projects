@@ -3,14 +3,15 @@
 ## 📌 Project Overview
 This project automates the transformation of **DISA STIG CKL/XML checklist findings into POA&M-ready CSV artifacts** using a **self-hosted n8n workflow enhanced with local Ollama AI**.
 
-The workflow ingests raw STIG checklist evidence, normalizes XML data into structured JSON, applies remediation logic, and uses a **local LLM (Ollama)** to generate:
-- finding summaries
-- remediation recommendations
-- closure validation guidance
+The workflow ingests raw STIG checklist evidence, normalizes XML data into structured JSON, applies CAT-based prioritization logic, and uses a **local LLM (Ollama)** to generate:
+
+- `finding_summary`
+- `recommended_fix`
+- `closure_validation`
 
 All AI processing occurs **locally on-host**, ensuring sensitive compliance evidence never leaves the environment.
 
-This simulates a real-world **RMF / ISSO / FedRAMP continuous monitoring workflow** used for vulnerability governance and audit preparation.
+This simulates a real-world **RMF / ISSO / FedRAMP continuous monitoring workflow** used for vulnerability governance, remediation tracking, and audit preparation.
 
 ---
 
@@ -21,12 +22,11 @@ This simulates a real-world **RMF / ISSO / FedRAMP continuous monitoring workflo
 - ✅ CAT I / II / III risk prioritization
 - ✅ POA&M row generation
 - ✅ milestone and ownership mapping
-- ✅ **local Ollama AI enrichment**
-- ✅ finding_summary generation
-- ✅ recommended_fix generation
-- ✅ closure_validation generation
+- ✅ **self-hosted Ollama AI enrichment**
+- ✅ AI-generated remediation narratives
+- ✅ closure validation guidance
 - ✅ CSV export for audit-ready artifacts
-- ✅ self-hosted secure workflow orchestration
+- ✅ secure local workflow orchestration
 
 ---
 
@@ -42,7 +42,7 @@ XML to JSON
    ↓
 POA&M Logic
    ↓
-Limit (AI Demo Finding)
+Limit (Representative AI Finding)
    ↓
 Basic LLM Chain
    ↓
@@ -53,57 +53,42 @@ Build POA&M Rows
 Convert JSON to CSV
 ```
 
-This architecture demonstrates how **workflow automation and local AI enrichment can accelerate RMF evidence production** while preserving data sovereignty.
+This architecture demonstrates how **workflow automation and local AI enrichment can accelerate RMF evidence production while preserving data sovereignty**.
 
 ---
 
-## 🔍 Compliance Automation Evidence Walkthrough
-A full screenshot-based evidence walkthrough is included in:
+## 📸 AI Workflow Evidence
+A full screenshot-based walkthrough of the **self-hosted local AI workflow and AI-enriched CSV artifact output** is included in:
 
 ```text
 Screenshots/README.md
 ```
 
-This documents:
-- workflow orchestration
-- AI enrichment layer
-- POA&M row generation
-- CSV validation output
-- audit-ready spreadsheet evidence
+This evidence walkthrough highlights:
+- self-hosted workflow orchestration
+- local Ollama AI integration
+- POA&M row automation
+- AI-enriched CSV output
+- audit-ready artifact portability
 
 ---
 
 ## 🧠 Local AI Enrichment Layer
-The workflow now integrates **self-hosted Ollama LLM inference** to enrich representative DISA STIG findings with:
+The workflow integrates **self-hosted Ollama LLM inference** to enrich a representative DISA STIG finding with:
 
 - `finding_summary`
 - `recommended_fix`
 - `closure_validation`
+- `ai_raw_output`
 
 This AI layer is designed to:
 - accelerate remediation documentation
 - reduce manual analyst effort
-- improve POA&M evidence consistency
-- keep sensitive compliance data private
-- enable scalable future enrichment across full CKL datasets
+- improve POA&M narrative consistency
+- preserve sensitive compliance data locally
+- support future scaling across full CKL datasets
 
-For lab efficiency, the AI enrichment currently processes a **single representative finding**, while the architecture supports scaling across full datasets.
-
----
-
-## 📸 Screenshots
-Key evidence screenshots are stored in:
-
-```text
-Screenshots/
-```
-
-Recommended captures:
-- full n8n workflow pipeline
-- local Ollama AI chain
-- AI-enriched POA&M row
-- final CSV output
-- sanitized spreadsheet evidence
+For lab efficiency, the AI layer currently processes a **single representative finding**, while the architecture supports full-dataset scaling.
 
 ---
 
@@ -111,8 +96,8 @@ Recommended captures:
 This workflow supports:
 - RMF evidence generation
 - ISSO remediation tracking
-- vulnerability governance
 - DISA STIG audit preparation
+- vulnerability governance
 - POA&M management
 - FedRAMP continuous monitoring
 - compliance workflow automation
@@ -121,25 +106,27 @@ This workflow supports:
 ---
 
 ## 🎯 Why This Matters
-Manual CKL-to-POA&M workflows are often:
+Traditional CKL-to-POA&M workflows are often:
 - repetitive
 - spreadsheet-heavy
 - inconsistent
 - difficult to scale
+- time-consuming for analysts
 
 By combining:
 - workflow orchestration
 - transformation logic
+- CAT-based prioritization
 - local AI enrichment
 - secure self-hosted execution
 
-this project demonstrates how cybersecurity teams can modernize compliance operations while maintaining control of sensitive evidence.
+this project demonstrates how cybersecurity teams can modernize compliance operations while maintaining full control of sensitive evidence.
 
 ---
 
 ## 🚀 Future Enhancements
-Planned upgrades:
-- AI enrichment at full CKL scale
+Planned roadmap:
+- full CKL dataset AI enrichment
 - executive risk summaries
 - automated POA&M ticket creation
 - ServiceNow integration
@@ -147,6 +134,7 @@ Planned upgrades:
 - FedRAMP package automation
 - Splunk / SIEM finding correlation
 - automated POA&M closure validation
+- leadership dashboard reporting
 
 ---
 
@@ -160,7 +148,7 @@ Planned upgrades:
 - **DISA STIG**
 - **RMF / NIST**
 - **POA&M**
-- **Self-hosted Docker**
+- **Docker (Self-hosted)**
 
 ---
 
@@ -172,6 +160,7 @@ A key design goal was ensuring:
 This mirrors real-world security requirements for:
 - federal systems
 - regulated environments
-- compliance evidence handling
 - private cyber workflows
-- air-gapped or restricted enclaves
+- compliance evidence handling
+- restricted enclaves
+- air-gapped environments
